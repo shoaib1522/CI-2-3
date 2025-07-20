@@ -70,6 +70,5 @@ def test_register_duplicate_user():
     # 2. ACT: Try to register the exact same user a second time.
     response = client.post("/register", json={"username": "testuser", "email": "test@example.com"})
 
-    # 3. ASSERT: Check that the API correctly returns a 400 Bad Request error.
     assert response.status_code == 400
     assert response.json() == {"detail": "Username or email already exists."}
